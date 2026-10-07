@@ -1,0 +1,105 @@
+{
+  "method": "Depth anchors fitted to the illustrated doorways; not a measured camera reconstruction",
+  "population": 256,
+  "depthSort": "preserved",
+  "spriteFootAnchors": "preserved",
+  "sixFrameAnimation": "preserved",
+  "cameraAndHeight": [
+    {
+      "viewport": "desktop",
+      "canvas": [
+        1384,
+        922.6666666666666
+      ],
+      "sharedGroundProjection": "passed",
+      "monotonicDepthScale": "passed",
+      "cameraZoom": 1.08,
+      "calibration": [
+        {
+          "sourceFootY": 0.561,
+          "beforePixels": 16.515733333333337,
+          "afterPixels": 24.912000000000003
+        },
+        {
+          "sourceFootY": 0.64,
+          "beforePixels": 36.994539682539674,
+          "afterPixels": 89.6832
+        },
+        {
+          "sourceFootY": 0.86,
+          "beforePixels": 94.02412698412697,
+          "afterPixels": 201.28896
+        },
+        {
+          "sourceFootY": 0.91,
+          "beforePixels": 106.98539682539682,
+          "afterPixels": 220.38816000000003
+        }
+      ]
+    },
+    {
+      "viewport": "phone",
+      "canvas": [
+        378,
+        525
+      ],
+      "sharedGroundProjection": "passed",
+      "monotonicDepthScale": "passed",
+      "cameraZoom": 1.08,
+      "calibration": [
+        {
+          "sourceFootY": 0.561,
+          "beforePixels": 9.397500000000003,
+          "afterPixels": 14.175
+        },
+        {
+          "sourceFootY": 0.64,
+          "beforePixels": 21.049999999999997,
+          "afterPixels": 51.03
+        },
+        {
+          "sourceFootY": 0.86,
+          "beforePixels": 53.49999999999999,
+          "afterPixels": 114.534
+        },
+        {
+          "sourceFootY": 0.91,
+          "beforePixels": 60.875,
+          "afterPixels": 125.40150000000001
+        }
+      ]
+    },
+    {
+      "viewport": "tablet",
+      "canvas": [
+        780,
+        520
+      ],
+      "sharedGroundProjection": "passed",
+      "monotonicDepthScale": "passed",
+      "cameraZoom": 1.08,
+      "calibration": [
+        {
+          "sourceFootY": 0.561,
+          "beforePixels": 9.308000000000003,
+          "afterPixels": 14.040000000000001
+        },
+        {
+          "sourceFootY": 0.64,
+          "beforePixels": 20.849523809523806,
+          "afterPixels": 50.544
+        },
+        {
+          "sourceFootY": 0.86,
+          "beforePixels": 52.99047619047618,
+          "afterPixels": 113.44320000000002
+        },
+        {
+          "sourceFootY": 0.91,
+          "beforePixels": 60.29523809523809,
+          "afterPixels": 124.20720000000001
+        }
+      ]
+    }
+  ]
+}

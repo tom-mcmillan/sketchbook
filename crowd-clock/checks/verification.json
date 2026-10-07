@@ -1,0 +1,25 @@
+{
+  "seed": 1207,
+  "population": 256,
+  "model_seconds": 60,
+  "zero_coupling": {
+    "R_end": 0.09665655154887937,
+    "R_mean_40_60": 0.041928740931600234
+  },
+  "coupling_2_4": {
+    "R_end": 0.9890303104772781,
+    "R_mean_40_60": 0.9890303104772777,
+    "angular_velocity_sd": 3.4022381092093135e-15
+  },
+  "nudge": {
+    "R_before": 0.9890303104772781,
+    "R_immediately_after": 0.9812950590666182,
+    "R_after_15_s": 0.9890303104772784
+  },
+  "numerical_checks": {
+    "step_halving_R_error": 9.992007221626409e-16,
+    "zero_coupling_exact_phase_error": 2.504663143554353e-13,
+    "seed_replay": "identical",
+    "javascript_syntax": "passed"
+  }
+}

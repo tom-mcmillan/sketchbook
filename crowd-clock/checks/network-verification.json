@@ -1,0 +1,41 @@
+{
+  "population": 256,
+  "groups": 4,
+  "peoplePerGroup": 64,
+  "internalUndirectedEdges": 8064,
+  "bridgeUndirectedEdges": 256,
+  "bridgeDegreePerPerson": 2,
+  "internalEdgeWeight": "2.4/64",
+  "bridgeEdgeWeight": "B/2",
+  "explicitAdjacencyMaxError": 2.220446049250313e-15,
+  "symmetricMeanFrequencyConservationError": 4.440892098500626e-16,
+  "bridgesOffIndependence": "passed",
+  "seedReplayAndReset": "identical",
+  "baselineInitialPhases": "identical",
+  "rk4StepHalvingMaxPhaseError": 3.1086244689504383e-15,
+  "regimes": [
+    {
+      "bridge": 0.08,
+      "seconds": 90,
+      "averagingWindow": [
+        60,
+        90
+      ],
+      "meanWholeCrowdR": 0.4675334849066573,
+      "meanGroupR": 0.9993379130836154,
+      "meanGroupSpeedSpread": 0.5998441787782994
+    },
+    {
+      "bridge": 1.2,
+      "seconds": 90,
+      "averagingWindow": [
+        60,
+        90
+      ],
+      "meanWholeCrowdR": 0.9834183518474734,
+      "meanGroupR": 0.9996453547373712,
+      "meanGroupSpeedSpread": 5.6103270177724575e-15
+    }
+  ],
+  "limitations": "Designed topology and frequency bands; finite numerical experiment, not empirical social evidence."
+}

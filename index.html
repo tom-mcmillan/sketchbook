@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive computational sketches. Explore what connections make possible in a crowd of individual rhythms.">
+  <title>Sketchbook — Tom McMillan</title>
+  <style>
+    :root { color-scheme: light; --paper: #e7eff3; --ink: #14253b; --slate: #415673; --line: #b4c7d3; --link: #284b78; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.6 system-ui, sans-serif; }
+    main { max-width: 1120px; margin: auto; padding: 64px 36px 32px; }
+    .byline, .medium { font: .8rem/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; color: var(--slate); }
+    .byline { margin: 0 0 16px; }
+    h1 { font-family: "Trebuchet MS", Avenir, sans-serif; font-size: clamp(3.5rem, 10vw, 7rem); line-height: 1; font-weight: 400; letter-spacing: -.06em; margin: 0; }
+    .intro { color: var(--slate); max-width: 35rem; margin: 24px 0 48px; font-size: 1.1rem; }
+    article { border-top: 1px solid var(--line); padding-top: 24px; }
+    .preview { display: block; overflow: hidden; border-radius: 6px; background: #14253b; }
+    .preview img { display: block; width: 100%; height: auto; aspect-ratio: 2.15; object-fit: cover; object-position: center 68%; }
+    .description { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; padding: 28px 0; }
+    .medium { margin: 0 0 10px; }
+    h2 { font-family: "Trebuchet MS", Avenir, sans-serif; font-size: clamp(1.7rem, 3.2vw, 2.5rem); font-weight: 400; letter-spacing: -.04em; line-height: 1.15; margin: 0; max-width: 25rem; }
+    .question { font-size: 1.1rem; margin: 0 0 12px; }
+    .detail { color: var(--slate); margin: 0 0 22px; }
+    a { color: var(--link); text-underline-offset: 5px; }
+    .open { display: inline-block; font-weight: 600; padding: 6px 0; }
+    a:hover { color: var(--ink); }
+    a:focus-visible { outline: 3px solid var(--link); outline-offset: 6px; }
+    footer { border-top: 1px solid var(--line); padding-top: 20px; margin-top: 20px; color: var(--slate); font-size: .85rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+    @media (max-width: 650px) { main { padding: 40px 22px 24px; } .intro { margin-bottom: 32px; } .description { grid-template-columns: 1fr; gap: 20px; } .preview img { aspect-ratio: 1.4; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="byline">Tom McMillan · computational sketches</p>
+      <h1>Sketchbook.</h1>
+      <p class="intro">Ideas you can enter, adjust, and watch become something else.</p>
+    </header>
+    <article aria-labelledby="sketch-title">
+      <a class="preview" href="./crowd-clock/" aria-label="Open What a connection makes possible">
+        <img src="./crowd-clock/assets/dimes-square.png" width="1536" height="1024" alt="An illustrated Dimes Square at blue hour, with sidewalks and crossings meeting around a corner storefront.">
+      </a>
+      <div class="description">
+        <div>
+          <p class="medium">Interactive experiment · 256 individual rhythms</p>
+          <h2 id="sketch-title">What a connection makes possible</h2>
+        </div>
+        <div>
+          <p class="question">Can groups keep their own rhythms and still be connected?</p>
+          <p class="detail">Change the bridges between four groups. Watch local coherence and a whole crowd’s rhythm unfold in an illustrated city square.</p>
+          <a class="open" href="./crowd-clock/">Open the experiment <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </article>
+    <footer>
+      <span>A sketch is a question you can try.</span>
+      <a href="https://github.com/tom-mcmillan/sketchbook">Source and model notes</a>
+    </footer>
+  </main>
+</body>
+</html>

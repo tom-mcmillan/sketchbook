@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What a connection makes possible</title>
+<meta name="description" content="Can groups keep their own rhythms and still be connected? An interactive, computed experiment in network synchronization, staged in an illustrated Dimes Square.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23080e15'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%2357e5e4'/%3E%3Cpath d='M16 16L23 9' stroke='%23efbc79' stroke-width='2'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%23efbc79'/%3E%3C/svg%3E">
+<style>
+:root{color-scheme:dark;--ink:#080e15;--text:#e3eeee;--muted:#94a7b5;--cyan:#57e5e4;--amber:#efbc79;--line:#25343d}*{box-sizing:border-box}html{background:var(--ink);font-size:16px}body{margin:0;color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,summary{font:inherit}button{min-height:44px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--text);padding:10px 17px;cursor:pointer;transition:background .15s,border-color .15s}button:hover{background:#13222a;border-color:#6a929f}button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--amber);outline-offset:5px}button.primary{background:var(--cyan);color:var(--ink);border-color:var(--cyan);font-weight:650}button.primary:hover{background:#8ef1ef}a{color:var(--cyan);text-underline-offset:4px}.instrument{max-width:1600px;margin:auto;padding:30px 48px 22px}header{display:flex;align-items:flex-start;justify-content:space-between;gap:22px}.eyebrow{text-transform:uppercase;font-size:.75rem;letter-spacing:.17em;color:var(--muted);margin:0 0 10px}h1{font-family:ui-serif,Georgia,serif;font-weight:400;font-size:clamp(1.7rem,3vw,2.7rem);letter-spacing:-.035em;line-height:1.05;margin:0}.readout{text-align:right;min-width:145px}.readout label{font-size:.875rem;color:var(--muted);display:block}.number{display:block;font-size:2.7rem;font-weight:300;font-variant-numeric:tabular-nums;line-height:1.25;letter-spacing:-.04em;color:var(--amber)}.readout small{font-size:.75rem;color:var(--muted)}.stage{height:min(64vh,710px);min-height:510px;position:relative;margin:2px -20px 0}canvas{width:100%;height:100%;display:block}.stage-note{position:absolute;left:24px;top:25px;max-width:300px;font-size:.875rem;line-height:1.55;color:var(--muted);pointer-events:none}.stage-note span{color:var(--text);font-size:1rem}.stage-note{z-index:1}.stage-note em{font-style:normal;color:var(--cyan);display:inline-block;margin-top:8px}.time{z-index:1}.time{position:absolute;right:20px;bottom:16px;text-align:right;color:var(--muted);font-size:.75rem;font-variant-numeric:tabular-nums;line-height:1.8}.controls{display:grid;grid-template-columns:minmax(250px,1fr) auto;gap:32px;align-items:center;border-top:1px solid var(--line);padding-top:23px}.coupling-head{display:flex;justify-content:space-between;gap:15px;align-items:baseline}label{font-size:.95rem}.coupling-head output{color:var(--cyan);font-variant-numeric:tabular-nums;font-size:1rem}.coupling{max-width:620px}input[type=range]{width:100%;height:36px;accent-color:var(--cyan);cursor:pointer}.range-notes{display:flex;justify-content:space-between;color:var(--muted);font-size:.75rem}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.below{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-top:24px;color:var(--muted);font-size:.875rem;line-height:1.5}.prompt{margin:0;max-width:640px}.prompt strong{color:var(--text);font-weight:500}details{max-width:1040px;margin:28px 0 14px;border-top:1px solid var(--line);padding-top:16px;color:var(--muted);font-size:1rem;line-height:1.6}summary{cursor:pointer;color:var(--text);font-size:.875rem;width:fit-content}details p{max-width:830px}.equation{color:var(--cyan);font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:clamp(.85rem,2vw,1.1rem);overflow-wrap:anywhere}.model-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}.model-grid p{margin:15px 0}.seed-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.seed-row label{font-size:.875rem}.seed-row input{max-width:150px;width:120px;background:#0d1820;border:1px solid var(--line);border-radius:5px;padding:10px;color:var(--text)}.status{min-height:1.5em;color:var(--amber)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:800px){.instrument{padding:24px 22px 18px}.stage{height:72vh;min-height:590px;margin:10px -16px 0}.stage-note{left:16px;top:18px;font-size:.875rem;max-width:calc(100% - 32px)}.stage-note span{font-size:.95rem}.time{right:16px}.controls{grid-template-columns:1fr;gap:20px}.coupling{max-width:none}.actions{justify-content:flex-start}.below{display:block}.model-grid{grid-template-columns:1fr;gap:0}.readout{min-width:92px}.number{font-size:2.15rem}.readout label{font-size:.75rem}.readout small{font-size:.75rem}h1{max-width:220px}.eyebrow{font-size:.75rem;letter-spacing:.1em}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.question{font-size:1rem;color:var(--muted);margin:15px 0 3px;line-height:1.5;max-width:480px}.interaction{display:grid;grid-template-columns:1fr 1.3fr;gap:36px;border-top:1px solid var(--line);padding:20px 0 22px;align-items:center}.selected-key{color:var(--amber);font-size:.875rem}.interaction-intro p{font-size:1.05rem;line-height:1.45;margin:8px 0}.interaction-intro>span:last-child{font-size:.875rem;color:var(--muted)}.timing{display:grid;grid-template-columns:1fr 16px 1fr 16px 1fr;gap:12px;align-items:center;max-width:660px}.timing div{display:flex;flex-direction:column;gap:6px}.timing span{font-size:.875rem;color:var(--muted)}.timing output{font-size:1.6rem;color:var(--amber);font-variant-numeric:tabular-nums}.timing b{color:var(--muted);font-weight:400}.timing small{grid-column:1/-1;color:var(--muted);font-size:.75rem;line-height:1.5}.time{bottom:8px}.stage-note{max-width:400px}@media(max-width:800px){.interaction{grid-template-columns:1fr;gap:20px}.timing{gap:8px}.timing span{font-size:.8rem}.timing output{font-size:1.4rem}.question{font-size:.95rem;max-width:250px}.readout{min-width:100px}.stage-note{max-width:calc(100% - 32px)}.stage-note span{font-size:.875rem}.stage-note em{margin-top:4px}}
+
+.stage{margin-top:18px;min-height:600px;height:min(73vh,840px);overflow:hidden;border-radius:8px;background:#101923}.stage-note{top:18px;left:20px;padding:12px 15px;border-radius:5px;background:rgba(8,14,21,.75);max-width:320px;backdrop-filter:blur(5px)}.stage-note span{font-family:ui-serif,Georgia,serif;font-size:1.14rem}.stage-note small{font-size:.75rem;letter-spacing:.03em}.time{padding:6px 10px;background:rgba(8,14,21,.75);border-radius:4px;bottom:12px}.scene-caption{font-size:.875rem;line-height:1.5;color:var(--muted);margin:11px 0 22px;max-width:800px}.scene-caption strong{color:var(--cyan);font-weight:500}@media(max-width:800px){.stage{height:640px;min-height:560px;margin-top:18px}.stage-note{left:12px;top:12px;padding:9px 12px;max-width:calc(100% - 24px)}.stage-note span{font-size:1rem}.stage-note em{font-size:.8rem}.scene-caption{font-size:.8125rem;margin-top:10px}}
+.scene-toolbar{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:20px}.scene-toolbar .stage-note{position:static;padding:0;background:none;backdrop-filter:none}.scene-toolbar canvas{width:320px;height:84px;flex-shrink:0}.stage{height:auto;min-height:0;aspect-ratio:3 / 2;margin-top:10px}@media(max-width:800px){.scene-toolbar{display:block}.scene-toolbar canvas{margin-top:6px;width:100%;height:84px}.stage{height:auto;min-height:0;aspect-ratio:.72}.scene-toolbar .stage-note{max-width:none}}
+
+.model-choice{margin:24px 0 14px;display:flex;gap:10px;flex-wrap:wrap}.model-choice button{font-size:.875rem}.model-choice button[aria-pressed="true"]{border-color:var(--cyan);background:#142b32;color:var(--cyan)}.assumptions{font-size:.875rem;line-height:1.55;color:var(--muted);max-width:1000px;margin:0 0 18px}.controls{margin-bottom:18px}.network-panel{margin:4px 0 12px;border-top:1px solid var(--line)}.network-panel canvas{height:148px;width:100%;max-width:900px;margin:auto}.network-note{font-size:.875rem;color:var(--muted);line-height:1.5;margin:0 auto 8px;max-width:900px;text-align:center}[hidden]{display:none!important}.model-grid h2{font-size:1rem;font-weight:600;color:var(--text);margin-top:20px}.question{max-width:530px}.selected-key{font-size:.875rem}.network-note strong{color:var(--text);font-weight:500}@media(max-width:800px){.model-choice{gap:8px;margin-top:20px}.model-choice button{padding:9px 11px}.network-panel canvas{height:148px}.question{max-width:300px}.network-note{text-align:left}.assumptions{font-size:.875rem}}
+</style>
+</head>
+<body><main class="instrument">
+<header><div><p class="eyebrow">A study in becoming · 256 individual rhythms</p><h1>What a connection<br>makes possible.</h1><p class="question">Can groups keep their own rhythms and still be connected?</p></div><div class="readout"><label for="order">Whole-crowd coherence</label><output id="order" class="number">0.000</output><small>R = 0 scattered · 1 aligned</small></div></header>
+<div class="model-choice" role="group" aria-label="Choose the computed model"><button id="mode-groups" aria-pressed="true">Four connected groups</button><button id="mode-global" aria-pressed="false">Original whole-crowd model</button></div><p id="model-assumptions" class="assumptions"></p>
+<section class="controls" aria-label="Simulation controls"><div class="coupling"><div class="coupling-head"><label for="coupling"><span id="coupling-label">Strength of bridges between groups</span></label><output id="coupling-value" for="coupling">B = 0.08</output></div><input id="coupling" type="range" min="0" max="4" step="0.01" value="0.08" aria-describedby="coupling-help"><div class="range-notes" id="coupling-help"><span id="range-low">Bridges off</span><span id="range-high">Strong bridges</span></div></div><div class="actions"><button id="listen" class="primary">Strengthen bridges</button><button id="nudge">Nudge one</button><button id="pause">Pause</button><button id="reset">Replay</button></div></section>
+<div class="scene-toolbar"><div class="stage-note"><span>Dimes Square · New York</span><br><small>Blue hour · illustrated setting</small><br><em id="crowd-state">256 rhythms of their own.</em></div><canvas id="rhythm" role="img" aria-label="Measured collective rhythm over the last twelve model seconds."></canvas></div><section id="network-panel" class="network-panel" aria-label="Coherence within the four groups"><canvas id="network-view" role="img" aria-label="Four group phase dials and their bridge connections"></canvas><p class="network-note"><strong>Four coherent groups need not make one coherent crowd.</strong><br>Each line stands for 64 fixed bridges; dashed lines are off. Dials show group phase; R measures alignment within that group. Pace is its mean angular speed.</p></section><div class="stage"><canvas id="world" role="img" aria-label="256 realistic-looking people walking illustrated sidewalks and crossings, turning and pausing. Every person’s movement cycle follows one oscillator. The collective rhythm is a measured output, not a conductor.">256 simulated people with varied rhythms. Increase coupling to see their movement timing align. The phase coherence value above reports the state.</canvas><div class="time"><span id="time">t = 0.0 s</span><br><span id="seed-view">seed 1207</span></div></div>
+<p class="scene-caption"><strong>Different paths. A rhythm they can share.</strong> Follow the amber path to watch one person cross the square, turn and pause. Walking cycles and pools of light follow each person’s phase; their destinations remain different. In the network model, four colors identify four groups. Bridges are fixed mathematical connections, independent of where people walk or how they look. The glow shows timing, not friendship.</p>
+<section class="interaction" aria-label="How the marked person responds"><div class="interaction-intro"><span class="selected-key">The person marked in amber</span><p>Interaction means adjusting your timing<br>in response to others.</p><span id="adjustment-story">At K = 0, they keep their own cadence.</span></div><div class="timing"><div><span>Own cadence · ω</span><output id="preferred-pace">0.00</output></div><b>+</b><div><span id="adjustment-label">Neighbors’ adjustment</span><output id="crowd-pull">+0.00</output></div><b>=</b><div><span>Current cadence</span><output id="actual-pace">0.00</output></div><small>radians per model second · positive speeds up the cycle, negative slows it down</small></div></section>
+
+<div class="below"><p class="prompt"><strong>Connection changes what can happen; it does not specify what ought to happen.</strong><br><span id="model-story">Weak bridges can connect groups that keep different cadences. Stronger bridges can bring those cadences together.</span> This toy computes timing, not understanding, belonging or agreement.</p><span id="status" class="status" role="status" aria-live="polite"></span></div>
+<details><summary>What is actually being computed?</summary><div class="model-grid"><div><h2>Four connected groups</h2><p>256 oscillators are assigned to four groups of 64. Each group is fully connected internally: 2,016 undirected edges per group, with weight 2.4/64. The groups form a ring A–B–C–D–A. Matching member indices connect adjacent groups, giving 256 undirected bridges and exactly two bridge neighbors per person. Each bridge has weight B/2. These edges enter the differential equation; the diagram summarizes them rather than drawing all 8,320 edges.</p><p class="equation">dθᵢ/dt = ωᵢ + (2.4/64) Σⱼ∈group(i) sin(θⱼ − θᵢ)<br>+ (B/2) Σⱼ∈bridges(i) sin(θⱼ − θᵢ)</p><p>Natural angular speeds are seeded uniform samples from four deliberately chosen bands, in radians per model second: A 0.55–0.85; B 0.75–1.05; C 0.95–1.25; D 1.15–1.45. No frequency changes when you move the bridge slider. These bands make the question visible; they are an assumption, not a finding about people.</p><h2>What to watch</h2><p>R is the magnitude of the mean unit phase vector, from 0 to 1. Each dial’s hand is that group’s mean phase, with length proportional to its R. Pace is the mean instantaneous angular speed in that group. A low whole-crowd R can coexist with four highly coherent groups. A high R at one moment does not establish lasting frequency locking.</p><p>For seed 1207, with internal strength 2.4, numerical runs averaged over seconds 60–90 give mean group R ≈ 0.999 and whole-crowd R ≈ 0.468 at B = 0.08. Group mean speeds remain distinct. At B = 1.2, whole-crowd R ≈ 0.983 and the four mean speeds settle near 1.003 rad/s. These are results of this chosen model and finite test, not universal thresholds.</p></div><div><h2>The original comparison</h2><p>The original model is preserved: all 256 oscillators respond to the global population mean, with seeded frequencies uniform from 0.4 to 1.6 rad/s. Its slider changes K from 0 to 4. The network experiment changes both topology and frequency distribution, so this is a comparison of two models, not an isolated test of topology.</p><p class="equation">dθᵢ/dt = ωᵢ + K R sin(ψ − θᵢ)<br>R · exp(iψ) = (1/256) Σⱼ exp(iθⱼ)</p><h2>Computation and staging</h2><p>Both models use fourth-order Runge–Kutta at a fixed 1/120-second step. Internal clique sums are evaluated exactly through each group’s mean; all bridge pairs are evaluated explicitly. No reduced population model is substituted. Changing models restarts from the same seed. Replay restores that model’s initial phases and frequencies while keeping the current coupling. Nudge moves the amber-marked oscillator half a turn.</p><p>Six-frame sprite cycles show four gait cycles per oscillator turn. The footlight pulses once per turn. Human scale is fitted to doorway references at several depths, with a shared, slightly closer street-level crop. Walking paths, turns, pauses and spacing are a separate deterministic animation; they never enter either phase equation. A person can pause physically while their oscillator continues. The amber trail records eighteen model seconds. On narrow screens, routes continue beyond the crop.</p><p>The Dimes Square setting is an AI-generated illustration; the people are fictional repeated cutouts. Streets, groups, frequencies and connections are composed for exploration. This is neither a pedestrian model nor an empirical model of society. Synchronization is not inherently good or bad.</p><h2>Ideas behind the experiment</h2><p><a href="https://doi.org/10.1103/PhysRevLett.96.114102" target="_blank" rel="noopener noreferrer">Arenas, Díaz-Guilera &amp; Pérez-Vicente (2006)</a> show how synchronization at different time scales can reveal network communities. <a href="https://link.springer.com/article/10.1140/epjb/e2008-00126-9" target="_blank" rel="noopener noreferrer">Brede (2008)</a> distinguishes local from global synchronization in heterogeneous Kuramoto networks. These motivate separate measurements here; this toy reproduces neither paper’s experiment or graph.</p><p><a href="https://en.wikipedia.org/wiki/Dimes_Square" target="_blank" rel="noopener noreferrer">About Dimes Square</a></p></div></div><div class="seed-row"><label for="seed">Initial conditions seed</label><input id="seed" type="number" min="0" max="4294967295" step="1" value="1207"><button id="apply-seed">Apply &amp; replay</button></div></details>
+<noscript><p>This instrument needs JavaScript to solve and draw its equations.</p></noscript>
+</main>
+<script id="model">
+'use strict';
+const TAU=Math.PI*2;
+function mulberry32(a){return function(){let t=a+=0x6D2B79F5;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296;};}
+class ClockModel{
+ constructor(seed=1207,n=256){this.n=n;this.theta=new Float64Array(n);this.omega=new Float64Array(n);this.work=new Float64Array(n);this.sines=new Float64Array(n);this.cosines=new Float64Array(n);this.ks=Array.from({length:4},()=>new Float64Array(n));this.reset(seed);}
+ reset(seed){this.seed=seed>>>0;const rng=mulberry32(this.seed);for(let i=0;i<this.n;i++){this.theta[i]=TAU*rng();this.omega[i]=.4+1.2*rng();}this.t=0;}
+ mean(){let x=0,y=0;for(let i=0;i<this.n;i++){x+=Math.cos(this.theta[i]);y+=Math.sin(this.theta[i]);}x/=this.n;y/=this.n;return{x,y,r:Math.hypot(x,y),psi:Math.atan2(y,x)};}
+ derivative(phases,K,out){let x=0,y=0;for(let i=0;i<this.n;i++){this.cosines[i]=Math.cos(phases[i]);this.sines[i]=Math.sin(phases[i]);x+=this.cosines[i];y+=this.sines[i];}x/=this.n;y/=this.n;for(let i=0;i<this.n;i++)out[i]=this.omega[i]+K*(y*this.cosines[i]-x*this.sines[i]);}
+ step(K,dt=1/120){const[a,b,c,d]=this.ks;this.derivative(this.theta,K,a);for(let i=0;i<this.n;i++)this.work[i]=this.theta[i]+dt*a[i]/2;this.derivative(this.work,K,b);for(let i=0;i<this.n;i++)this.work[i]=this.theta[i]+dt*b[i]/2;this.derivative(this.work,K,c);for(let i=0;i<this.n;i++)this.work[i]=this.theta[i]+dt*c[i];this.derivative(this.work,K,d);for(let i=0;i<this.n;i++){this.theta[i]=(this.theta[i]+dt*(a[i]+2*b[i]+2*c[i]+d[i])/6)%TAU;}this.t+=dt;}
+ nudge(){this.theta[0]=(this.theta[0]+Math.PI)%TAU;}
+}
+</script>
+<script id="network-model">
+class NetworkClockModel extends ClockModel{
+ constructor(seed=1207,n=256){super(seed,n);this.bridge=.08;}
+ reset(seed){
+  super.reset(seed);this.groupSize=this.n/4;
+  this.centers=[.70,.90,1.10,1.30];
+  for(let i=0;i<this.n;i++)this.omega[i]=this.centers[this.group(i)]+((this.omega[i]-.4)/1.2-.5)*.30;
+  this.gx=new Float64Array(4);this.gy=new Float64Array(4);
+  this.edges=[];for(let g=0;g<4;g++)for(let k=0;k<this.groupSize;k++)this.edges.push([g*this.groupSize+k,((g+1)%4)*this.groupSize+k]);
+ }
+ group(i){return Math.floor(i/this.groupSize);}
+ derivative(phases,K,out){
+  this.gx.fill(0);this.gy.fill(0);
+  for(let i=0;i<this.n;i++){const g=this.group(i);this.cosines[i]=Math.cos(phases[i]);this.sines[i]=Math.sin(phases[i]);this.gx[g]+=this.cosines[i]/this.groupSize;this.gy[g]+=this.sines[i]/this.groupSize;}
+  for(let i=0;i<this.n;i++){const g=this.group(i);out[i]=this.omega[i]+K*(this.gy[g]*this.cosines[i]-this.gx[g]*this.sines[i]);}
+  const weight=this.bridge/2;
+  for(const [i,j] of this.edges){const pull=weight*(this.sines[j]*this.cosines[i]-this.cosines[j]*this.sines[i]);out[i]+=pull;out[j]-=pull;}
+ }
+ groupStats(K){
+  const speed=new Float64Array(this.n);this.derivative(this.theta,K,speed);
+  return this.centers.map((center,g)=>{let x=0,y=0,v=0;for(let i=g*this.groupSize;i<(g+1)*this.groupSize;i++){x+=Math.cos(this.theta[i])/this.groupSize;y+=Math.sin(this.theta[i])/this.groupSize;v+=speed[i]/this.groupSize;}return{x,y,r:Math.hypot(x,y),phase:Math.atan2(y,x),speed:v,center};});
+ }
+}
+</script>
+<script id="observation">
+class CrowdObservation{
+ constructor(model){this.model=model;this.reset();}
+ reset(){this.trace=[];this.nextSample=0;}
+ sample(){const m=this.model;if(m.t>=this.nextSample){const mean=m.mean();this.trace.push({t:m.t,x:mean.x});this.nextSample=m.t+.08;while(this.trace.length&&this.trace[0].t<m.t-12)this.trace.shift();}}
+ timing(i,K){const m=this.model,preferred=m.omega[i],speeds=new Float64Array(m.n);m.derivative(m.theta,K,speeds);const adjustment=speeds[i]-preferred;return{preferred,adjustment,actual:speeds[i]};}
+}
+</script>
+<script id="paths">
+// Presentation-only routes fitted to the illustrated sidewalks and marked crossings.
+// No spatial value is read by ClockModel. Coordinates are normalized to the scene.
+class CrowdPaths{
+ constructor(n=256,seed=1207){this.n=n;this.reset(seed);}
+ reset(seed){
+  this.seed=seed>>>0;this.t=0;this.tick=0;this.trace=[];
+  const rng=mulberry32(this.seed^0x8d27a19f),v=(x,y)=>({x,z:(y-.54)/.42});
+  const nodes={
+   a:v(.075,.905),b:v(.164,.796),c:v(.202,.682),d:v(.190,.605),e:v(.196,.561),
+   f:v(.232,.561),g:v(.318,.581),h:v(.407,.614),i:v(.498,.639),j:v(.593,.642),
+   k:v(.712,.621),l:v(.805,.593),m:v(.880,.569),n:v(.924,.581),o:v(.939,.642),
+   p:v(.947,.708),q:v(.981,.728),r:v(.674,.914),s:v(.452,.860),t:v(.285,.826),u:v(.184,.852)
+  };
+  // The three street crossings connect continuous sidewalk walks. Backtracking
+  // routes let people stroll, turn, and return rather than orbit one shared ring.
+  const loops=[
+   ['u','b','c','i','j','p','q','r','s','t'],
+   ['c','d','e','f','g','h','i'],
+   ['i','j','k','l','m','n','o','p','j'],
+   ['a','u','t','s','r','q','p','j','i','c','b','u'],
+   ['c','i','h','g','f','e','d'],
+   ['j','k','l','m','n','o','p'],
+   ['u','b','c','i','j','k','l','k','j','i','c','b'],
+   ['p','j','i','c','b','u','t','s','r','q']
+  ];
+  this.people=Array.from({length:this.n},(_,i)=>{
+   const route=i===0?loops[0]:loops[Math.floor(rng()*loops.length)];
+   const points=route.map(name=>({...nodes[name]}));
+   const direction=rng()<.5?-1:1,person={points,u:i===0?2.5:rng()*points.length,direction,speed:.032+rng()*.018,pause:0,nextPause:i===0?5:6+rng()*26,pauseEvery:16+rng()*24,pauseDuration:.8+rng()*1.7,lane:(rng()-.5)*.040,ox:0,oz:0,ax:0,az:0,facing:direction,turn:direction};
+   const p=this.point(person,person.u);person.x=p.x;person.z=p.z;person.dx=direction;person.dz=0;return person;
+  });
+ }
+ point(p,u){
+  const n=p.points.length,k=Math.floor(u),t=u-k,get=i=>p.points[(i%n+n)%n],a=get(k-1),b=get(k),c=get(k+1),d=get(k+2),blend=(a,b,t)=>({x:a.x+(b.x-a.x)*t,z:a.z+(b.z-a.z)*t});
+  const cut=.10,entry=blend(b,a,cut),exit=blend(b,c,cut),nextEntry=blend(c,b,cut);
+  let q,tangent;
+  if(t<cut){const v=t/cut,ab=blend(entry,b,v),bc=blend(b,exit,v);q=blend(ab,bc,v);tangent={x:bc.x-ab.x,z:bc.z-ab.z};}
+  else{q=blend(exit,nextEntry,(t-cut)/(1-cut));tangent={x:c.x-b.x,z:c.z-b.z};}
+  const length=Math.max(.0001,Math.hypot(tangent.x,tangent.z*.42)),lane=p.lane*(.30+.70*q.z);
+  return{x:q.x-tangent.z*.42/length*lane,z:q.z+tangent.x/length*lane/.42};
+ }
+ step(dt){
+  this.t+=dt;this.tick++;
+  for(const p of this.people){
+   if(this.t>=p.nextPause){p.pause=p.pauseDuration;p.nextPause=this.t+p.pauseEvery;}
+   if(p.pause>0)p.pause=Math.max(0,p.pause-dt);
+   else{const q=this.point(p,p.u),ahead=this.point(p,p.u+.002*p.direction),derivative=Math.max(.04,Math.hypot(ahead.x-q.x,(ahead.z-q.z)*.42)/.002),perspective=.28+.72*q.z;p.u=(p.u+p.direction*p.speed*perspective*dt/derivative+p.points.length)%p.points.length;const next=this.point(p,p.u);p.dx=next.x-q.x;p.dz=(next.z-q.z)*.42;if(Math.abs(p.dx)>.000001)p.facing=p.dx>0?1:-1;}
+   const q=this.point(p,p.u);p.ox+=(p.ax-p.ox)*Math.min(1,dt*4);p.oz+=(p.az-p.oz)*Math.min(1,dt*4);p.turn+=(p.facing-p.turn)*Math.min(1,dt*8);p.x=q.x+p.ox;p.z=q.z+p.oz;
+  }
+  if(this.tick%12===0){
+   for(const p of this.people){p.ax=0;p.az=0;}
+   for(let i=0;i<this.n;i++)for(let j=i+1;j<this.n;j++){
+    const a=this.people[i],b=this.people[j],dx=a.x-b.x,dz=(a.z-b.z)*.42,d=Math.hypot(dx,dz),gap=.008+.016*(a.z+b.z);
+    if(d<gap){const push=Math.min(.003,(gap-d)*.15),angle=d>.00001?Math.atan2(dz,dx):(i+j)*2.399,x=Math.cos(angle)*push,z=Math.sin(angle)*push/.42;a.ax+=x;a.az+=z;b.ax-=x;b.az-=z;}
+   }
+   for(const p of this.people){const limit=.004+.010*p.z;p.ax=Math.max(-limit,Math.min(limit,p.ax));p.az=Math.max(-limit/.42,Math.min(limit/.42,p.az));}
+   const p=this.people[0];this.trace.push({t:this.t,x:p.x,z:p.z});while(this.trace.length&&this.t-this.trace[0].t>18)this.trace.shift();
+  }
+ }
+}
+</script>
+<script id="interface">
+(()=>{'use strict';
+const $=id=>document.getElementById(id),canvas=$('world'),ctx=canvas.getContext('2d');
+let mode='groups',model=new NetworkClockModel(),observation=new CrowdObservation(model);
+const paths=new CrowdPaths(model.n,model.seed),GROUP_COLORS=['#68ded7','#bda2f4','#f09abb','#b5d785'];
+let lastGlobalK=0,lastBridge=.08;
+if(!ctx){$('status').textContent='Your browser could not start the canvas.';return;}
+let K=2.4,paused=matchMedia('(prefers-reduced-motion: reduce)').matches,width=0,height=0,dpr=1,last=0,acc=0,lastReadout=-1,statusTimer,force=true;
+const STEP=1/120,atlas=new Image(),sprites=[],COLUMNS=4,POSES=6;
+const square=new Image();let squareReady=false,squareError=false;
+square.onload=()=>{squareReady=true;force=true;};square.onerror=()=>{squareError=true;force=true;announce('The Dimes Square illustration could not load. Reload to try again.');};square.src='./assets/dimes-square.png';
+const lightHistory=[];let lastLightSample=-1,lightSeed=model.seed;
+function makeLight(rgb){const texture=document.createElement('canvas');texture.width=128;texture.height=128;const c=texture.getContext('2d'),gradient=c.createRadialGradient(64,64,0,64,64,64);gradient.addColorStop(0,`rgba(${rgb},.70)`);gradient.addColorStop(.30,`rgba(${rgb},.30)`);gradient.addColorStop(.65,`rgba(${rgb},.10)`);gradient.addColorStop(1,`rgba(${rgb},0)`);c.fillStyle=gradient;c.fillRect(0,0,128,128);return texture;}
+const lightTexture=makeLight('110,249,239'),groupLights=['104,222,215','189,162,244','240,154,187','181,215,133'].map(makeLight);
+function personLight(i){return mode==='groups'?groupLights[model.group(i)]:lightTexture;}
+let assetReady=false,assetError=false;
+atlas.onload=()=>{prepareSprites();assetReady=true;force=true;};
+atlas.onerror=()=>{assetError=true;force=true;announce('The crowd image could not load. Reload to try again.');};
+atlas.src='./assets/walking-people.png';
+// Photographic walking and gesture poses visualize individual phases.
+// Staged encounters and paths never change the global coupling model.
+function prepareSprites(){
+ const frames=[{"person":0,"pose":0,"x":0,"y":0,"w":209,"h":298,"ax":115.5,"ay":284,"vh":278},{"person":0,"pose":1,"x":209,"y":0,"w":209,"h":298,"ax":109.5,"ay":284,"vh":278},{"person":0,"pose":2,"x":418,"y":0,"w":209,"h":298,"ax":99.0,"ay":284,"vh":278},{"person":0,"pose":3,"x":627,"y":0,"w":209,"h":298,"ax":113.5,"ay":284,"vh":278},{"person":0,"pose":4,"x":836,"y":0,"w":209,"h":298,"ax":103.5,"ay":284,"vh":278},{"person":0,"pose":5,"x":1045,"y":0,"w":209,"h":298,"ax":108.5,"ay":284,"vh":278},{"person":1,"pose":0,"x":0,"y":298,"w":209,"h":304,"ax":111.0,"ay":291,"vh":285},{"person":1,"pose":1,"x":209,"y":298,"w":209,"h":304,"ax":105.0,"ay":291,"vh":285},{"person":1,"pose":2,"x":418,"y":298,"w":209,"h":304,"ax":98.0,"ay":292,"vh":285},{"person":1,"pose":3,"x":627,"y":298,"w":209,"h":304,"ax":110.5,"ay":292,"vh":285},{"person":1,"pose":4,"x":836,"y":298,"w":209,"h":304,"ax":102.5,"ay":292,"vh":285},{"person":1,"pose":5,"x":1045,"y":298,"w":209,"h":304,"ax":113.0,"ay":292,"vh":285},{"person":2,"pose":0,"x":0,"y":602,"w":209,"h":307,"ax":115.0,"ay":293,"vh":284},{"person":2,"pose":1,"x":209,"y":602,"w":209,"h":307,"ax":111.5,"ay":293,"vh":284},{"person":2,"pose":2,"x":418,"y":602,"w":209,"h":307,"ax":97.0,"ay":293,"vh":284},{"person":2,"pose":3,"x":627,"y":602,"w":209,"h":307,"ax":114.5,"ay":293,"vh":284},{"person":2,"pose":4,"x":836,"y":602,"w":209,"h":307,"ax":104.5,"ay":294,"vh":284},{"person":2,"pose":5,"x":1045,"y":602,"w":209,"h":307,"ax":111.0,"ay":293,"vh":284},{"person":3,"pose":0,"x":0,"y":909,"w":209,"h":345,"ax":113.0,"ay":301,"vh":297},{"person":3,"pose":1,"x":209,"y":909,"w":209,"h":345,"ax":105.0,"ay":304,"vh":297},{"person":3,"pose":2,"x":418,"y":909,"w":209,"h":345,"ax":98.0,"ay":303,"vh":297},{"person":3,"pose":3,"x":627,"y":909,"w":209,"h":345,"ax":114.5,"ay":302,"vh":297},{"person":3,"pose":4,"x":836,"y":909,"w":209,"h":345,"ax":104.5,"ay":303,"vh":297},{"person":3,"pose":5,"x":1045,"y":909,"w":209,"h":345,"ax":112.0,"ay":302,"vh":297}];
+ for(let person=0;person<COLUMNS;person++)sprites.push(frames.filter(f=>f.person===person).sort((a,b)=>a.pose-b.pose));
+}
+function resize(){const r=canvas.getBoundingClientRect();width=r.width;height=r.height;dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);force=true;}
+new ResizeObserver(resize).observe(canvas);
+function announce(text){clearTimeout(statusTimer);$('status').textContent=text;statusTimer=setTimeout(()=>{$('status').textContent='';},5000);}
+function controlValue(){return mode==='groups'?model.bridge:K;}
+function configureControls(){const grouped=mode==='groups';$('mode-groups').setAttribute('aria-pressed',String(grouped));$('mode-global').setAttribute('aria-pressed',String(!grouped));$('network-panel').hidden=!grouped;$('coupling-label').textContent=grouped?'Strength of bridges between groups':'How strongly the whole crowd influences each person';$('range-low').textContent=grouped?'Bridges off':'Independent';$('range-high').textContent=grouped?'Strong bridges':'Strongly coupled';$('adjustment-label').textContent=grouped?'Neighbors’ adjustment':'Crowd’s adjustment';$('model-assumptions').textContent=grouped?'Four groups × 64 people. Each group has a different, deliberately chosen natural-cadence band. Internal coupling stays at 2.4; the slider changes only bridges.':'Original model: everyone responds to everyone, with natural cadences drawn uniformly from 0.4–1.6 rad/s. Switching models changes both topology and frequency assumptions.';$('model-story').textContent=grouped?'Weak bridges can connect groups that keep different cadences. Stronger bridges can bring those cadences together.':'Everyone responds to the same population mean. Increase coupling to explore how separate rhythms can align.';setK(controlValue());}
+function setMode(next){if(!['global','groups'].includes(next)||next===mode)return;const seed=model.seed;if(mode==='groups')lastBridge=model.bridge;else lastGlobalK=K;mode=next;model=mode==='groups'?new NetworkClockModel(seed):new ClockModel(seed);if(mode==='groups')model.bridge=lastBridge;K=mode==='groups'?2.4:lastGlobalK;observation=new CrowdObservation(model);reset(seed);configureControls();announce('Model changed. Replayed from the same seed with the assumptions shown above.');}
+function setK(value){if(!Number.isFinite(value)||value<0||value>4)throw new Error('Coupling must be between 0 and 4.');if(mode==='groups')model.bridge=value;else K=value;$('coupling').value=String(value);$('coupling-value').value=(mode==='groups'?'B = ':'K = ')+value.toFixed(2);$('listen').textContent=mode==='groups'?(value>.5?'Loosen bridges':'Strengthen bridges'):(value>1?'Let them drift':'Let them listen');force=true;updateReadout();return readState();}
+function setPaused(value){paused=value;last=0;acc=0;$('pause').textContent=paused?'Play':'Pause';$('pause').setAttribute('aria-pressed',String(paused));force=true;}
+function reset(seed=model.seed){if(!Number.isInteger(seed)||seed<0||seed>4294967295)throw new Error('Seed must be an integer from 0 to 4294967295.');model.reset(seed);observation.reset();paths.reset(seed);lightHistory.length=0;lastLightSample=-1;$('seed').value=String(seed);$('seed-view').textContent='seed '+seed;acc=0;last=0;lastReadout=-1;force=true;updateReadout();}
+function readState(){return{model:mode,seed:model.seed,population:model.n,coupling:controlValue(),withinGroupCoupling:mode==='groups'?K:null,paused,modelSeconds:Number(model.t.toFixed(3)),phaseCoherence:model.mean().r,groups:mode==='groups'?model.groupStats(K).map(g=>({coherence:g.r,meanAngularSpeed:g.speed})):null};}
+function updateReadout(){const m=model.mean(),timing=observation.timing(0,K);$('preferred-pace').value=timing.preferred.toFixed(2);$('crowd-pull').value=(timing.adjustment>=0?'+':'')+timing.adjustment.toFixed(2);$('actual-pace').value=timing.actual.toFixed(2);$('adjustment-story').textContent=Math.abs(timing.adjustment)<.015?'At this moment, coupling barely changes their cadence.':timing.adjustment>0?'Their connections draw the next movement earlier.':'Their connections hold the next movement back.';$('order').value=m.r.toFixed(3);$('time').textContent='t = '+model.t.toFixed(1)+' s';if(mode==='groups'){const groups=model.groupStats(K),local=groups.reduce((sum,g)=>sum+g.r,0)/4,speeds=groups.map(g=>g.speed),gap=Math.max(...speeds)-Math.min(...speeds);$('crowd-state').textContent=local<.85?'Four groups are finding their rhythms.':gap>.05?'Coherent groups. Different cadences.':'The groups’ mean cadences are close right now.';}else $('crowd-state').textContent=m.r>.85?'A shared rhythm is emerging.':m.r>.35?'Their rhythms are drawing together.':'256 rhythms of their own.';canvas.setAttribute('aria-label',`256 simulated oscillators in the ${mode==='groups'?'four-group network':'original all-to-all'} model. Walking paths are a separate illustration. ${mode==='groups'?'Bridge strength':'Coupling'} ${controlValue().toFixed(2)}. Whole-crowd coherence ${m.r.toFixed(3)}. ${paused?'Paused.':'Running.'}`);lastReadout=model.t;}
+$('mode-groups').addEventListener('click',()=>setMode('groups'));
+$('mode-global').addEventListener('click',()=>setMode('global'));
+$('coupling').addEventListener('input',e=>setK(Number(e.target.value)));
+$('listen').addEventListener('click',()=>{if(mode==='groups'){setK(model.bridge>.5?.08:1.2);announce('Only bridge strength changed. Watch group pace and whole-crowd coherence over time.');}else{setK(K>1?0:2.4);announce(K?'They now respond to one another. Give their rhythms time to meet.':'Only their own rhythms remain.');}});
+$('pause').addEventListener('click',()=>setPaused(!paused));
+$('reset').addEventListener('click',()=>{reset();announce('Same people. Same starting rhythms.');});
+$('nudge').addEventListener('click',()=>{model.nudge();force=true;updateReadout();announce('The person marked in amber moved half a cycle out of step.');});
+$('apply-seed').addEventListener('click',()=>{try{reset(Number($('seed').value));announce('Replayed with seed '+model.seed+'.');}catch(e){announce(e.message);}});
+document.addEventListener('visibilitychange',()=>{last=0;acc=0;});
+function hash(i){let h=(i+17)>>>0;h=Math.imul(h^(h>>>16),0x45d9f3b);h=Math.imul(h^(h>>>16),0x45d9f3b);return((h^(h>>>16))>>>0)/4294967296;}
+function poseForPhase(a){return Math.floor((((a*4)%TAU)+TAU)%TAU/TAU*POSES)%POSES;}
+function drawCollectiveRhythm(){
+ const chart=$('rhythm'),ctx=chart.getContext('2d'),rect=chart.getBoundingClientRect(),w=rect.width-24,x=12,y=18,h=30;chart.width=Math.round(rect.width*dpr);chart.height=Math.round(rect.height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);
+ ctx.save();ctx.fillStyle='rgba(8,14,21,.76)';ctx.beginPath();ctx.roundRect(x-12,y-17,w+24,91,5);ctx.fill();ctx.textAlign='left';ctx.font='14px system-ui, sans-serif';ctx.fillStyle='#e3eeee';ctx.fillText('A collective rhythm',x,y);
+ ctx.font='12px system-ui, sans-serif';ctx.fillStyle='#bac6ca';ctx.fillText('Measured from everyone · no external beat',x,y+18);
+ const center=y+32+h/2;ctx.strokeStyle='#496067';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x,center);ctx.lineTo(x+w,center);ctx.stroke();
+ ctx.beginPath();let began=false;for(const point of observation.trace){const px=x+w-(model.t-point.t)/12*w,py=center-point.x*h/2;if(px<x)continue;if(!began){ctx.moveTo(px,py);began=true;}else ctx.lineTo(px,py);}ctx.strokeStyle='#74e7dc';ctx.lineWidth=2;ctx.stroke();ctx.restore();
+}
+function drawNetworkSummary(){
+ if(mode!=='groups')return;const chart=$('network-view'),c=chart.getContext('2d'),rect=chart.getBoundingClientRect(),w=rect.width,h=148;chart.width=Math.round(w*dpr);chart.height=Math.round(h*dpr);c.setTransform(dpr,0,0,dpr,0,0);const groups=model.groupStats(K),xs=groups.map((_,g)=>w*(g+.5)/4),y=63,r=22,B=model.bridge;
+ c.strokeStyle=B===0?'#44545f':`rgba(164,192,202,${.22+.62*Math.min(1,B/1.2)})`;c.lineWidth=1+Math.min(B,1.6)*1.6;c.setLineDash(B===0?[4,5]:[]);c.beginPath();for(let i=0;i<3;i++){c.moveTo(xs[i]+r,y);c.lineTo(xs[i+1]-r,y);}c.moveTo(xs[0],y-r);c.bezierCurveTo(xs[0],4,xs[3],4,xs[3],y-r);c.stroke();c.setLineDash([]);
+ groups.forEach((g,i)=>{c.strokeStyle=GROUP_COLORS[i];c.lineWidth=2;c.fillStyle='#0b151d';c.beginPath();c.arc(xs[i],y,r,0,TAU);c.fill();c.stroke();c.beginPath();c.moveTo(xs[i],y);c.lineTo(xs[i]+Math.cos(g.phase)*r*.8*g.r,y-Math.sin(g.phase)*r*.8*g.r);c.stroke();c.fillStyle=GROUP_COLORS[i];c.font='14px system-ui, sans-serif';c.textAlign='center';c.fillText('Group '+String.fromCharCode(65+i),xs[i],104);c.fillStyle='#e3eeee';c.fillText('R '+g.r.toFixed(3),xs[i],124);c.fillStyle='#94a7b5';c.font='12px system-ui, sans-serif';c.fillText('pace '+g.speed.toFixed(2),xs[i],143);});
+ chart.setAttribute('aria-label','Four groups of 64, connected in a ring by 64 matching bridges per group pair. Bridge strength '+B.toFixed(2)+'. '+groups.map((g,i)=>'Group '+String.fromCharCode(65+i)+': coherence '+g.r.toFixed(3)+', mean speed '+g.speed.toFixed(3)+' radians per second').join('. '));
+}
+// One camera transform is shared by scenery, feet, trails, shadows, and height.
+// Calibrated against doors along the illustrated streets, rather than an
+// arbitrary multiplier: distant adults 26 px, corner adults 92 px, and
+// near-sidewalk adults 207 px in the 1024 px source. The illustration is
+// not a surveyed pinhole photograph, so we interpolate these depth anchors.
+const SCENE_CAMERA={zoom:1.08,focusX:.53,focusY:.92};
+const HUMAN_SCALE=[[.54,.008],[.561,.025],[.64,.09],[.86,.202],[.98,.248]];
+function sceneCamera(){const scale=Math.max(width/square.width,height/square.height)*SCENE_CAMERA.zoom;return{scale,cropX:(square.width-width/scale)*SCENE_CAMERA.focusX,cropY:(square.height-height/scale)*SCENE_CAMERA.focusY};}
+function humanHeight(z){const y=.54+.42*z;for(let i=1;i<HUMAN_SCALE.length;i++){const [ay,ah]=HUMAN_SCALE[i-1],[by,bh]=HUMAN_SCALE[i];if(y<=by)return Math.max(.008,ah+(bh-ah)*(y-ay)/(by-ay));}return HUMAN_SCALE[HUMAN_SCALE.length-1][1];}
+function drawSharedGround(){
+ if(squareReady){const {scale,cropX,cropY}=sceneCamera();ctx.drawImage(square,cropX,cropY,width/scale,height/scale,0,0,width,height);}
+ else {ctx.fillStyle='#17252d';ctx.fillRect(0,0,width,height);}
+ ctx.fillStyle='rgba(6,15,23,.20)';ctx.fillRect(0,0,width,height);
+ const shade=ctx.createLinearGradient(0,height*.42,0,height);shade.addColorStop(0,'rgba(5,13,20,0)');shade.addColorStop(1,'rgba(5,13,20,.38)');ctx.fillStyle=shade;ctx.fillRect(0,0,width,height);
+}
+function drawPhaseLight(people){
+ // Rendering only: each pool reads its own oscillator's phase. No local edges or extra coupling.
+ if(model.t<lastLightSample||lightSeed!==model.seed){lightHistory.length=0;lastLightSample=-1;lightSeed=model.seed;}
+ if(model.t-lastLightSample>=.16||lastLightSample<0){lightHistory.push({t:model.t,points:people.map(p=>({i:p.i,x:p.x,y:p.y,r:p.personHeight*.72,pulse:Math.pow(.5+.5*Math.cos(model.theta[p.i]),3)}))});lastLightSample=model.t;}
+ while(lightHistory.length&&model.t-lightHistory[0].t>1.3)lightHistory.shift();
+ ctx.save();ctx.globalCompositeOperation='screen';
+ for(const sample of lightHistory){const age=model.t-sample.t;if(age<.1)continue;ctx.globalAlpha=.032*Math.max(0,1-age/1.3);for(const p of sample.points){const r=p.r*(.9+age*.23);ctx.globalAlpha=.047*p.pulse*Math.max(0,1-age/1.3);ctx.drawImage(personLight(p.i),p.x-r,p.y-r*.25,r*2,r*.5);}}
+ for(const p of people){const pulse=Math.pow(.5+.5*Math.cos(model.theta[p.i]),3),r=p.personHeight*(.43+.35*pulse);ctx.globalAlpha=.11+.78*pulse;ctx.drawImage(personLight(p.i),p.x-r,p.y-r*.27,r*2,r*.54);}
+ ctx.restore();
+}
+function groundPoint(x,z){const {scale,cropX,cropY}=sceneCamera();return{x:(x*square.width-cropX)*scale,y:((.54+.42*z)*square.height-cropY)*scale,depth:z,sceneHeight:square.height*scale};}
+function drawFocusedPath(){if(paths.trace.length<2)return;ctx.save();ctx.strokeStyle='rgba(239,188,121,.78)';ctx.lineWidth=width<680?1.3:2;ctx.lineJoin='round';ctx.beginPath();paths.trace.forEach((p,i)=>{const q=groundPoint(p.x,p.z);if(i)ctx.lineTo(q.x,q.y);else ctx.moveTo(q.x,q.y);});ctx.stroke();const first=groundPoint(paths.trace[0].x,paths.trace[0].z);ctx.fillStyle='#efbc79';ctx.beginPath();ctx.arc(first.x,first.y,2,0,TAU);ctx.fill();ctx.restore();}
+function render(){
+ if(!width||!height)return;
+ ctx.fillStyle='#080e15';ctx.fillRect(0,0,width,height);drawSharedGround();
+ if(!assetReady||!squareReady){ctx.fillStyle='#94a7b5';ctx.textAlign='center';ctx.font='16px system-ui, sans-serif';ctx.fillText(assetError||squareError?'The scene could not load. Please reload.':'Bringing Dimes Square into view…',width/2,height*.55);force=false;return;}
+ const mobile=width<680,people=[];
+ for(let i=0;i<model.n;i++){
+  const p=paths.people[i],q=groundPoint(p.x,p.z),personHeight=q.sceneHeight*humanHeight(q.depth);
+  const gait=model.theta[i]*4,motion={pose:p.pause>0?1:poseForPhase(model.theta[i]),facing:p.turn,profile:.67+.33*Math.abs(p.dx)/Math.max(.000001,Math.hypot(p.dx,p.dz)),bob:p.pause>0?0:Math.abs(Math.sin(gait*2))*personHeight*.013};
+  people.push({i,depth:q.depth,x:q.x,y:q.y,personHeight:personHeight*(.92+hash(i+205)*.16),motion});
+ }
+ // Depth ordering allows people to pass naturally through the shared space.
+ people.sort((a,b)=>a.y-b.y);
+ drawPhaseLight(people);
+ drawFocusedPath();
+ for(const {i,depth,x,y,personHeight,motion} of people){
+  const cell=sprites[Math.floor(hash(i+987)*COLUMNS)%COLUMNS][motion.pose],scale=personHeight/cell.vh;
+  ctx.save();ctx.globalAlpha=.72+.28*depth;
+  ctx.fillStyle='rgba(0,0,0,.24)';ctx.beginPath();ctx.ellipse(x,y-1,personHeight*.18,personHeight*.027,0,0,TAU);ctx.fill();
+  if(i===0){ctx.strokeStyle='#efbc79';ctx.lineWidth=1.5;ctx.beginPath();ctx.ellipse(x,y-1,personHeight*.22,personHeight*.04,0,0,TAU);ctx.stroke();ctx.fillStyle='#efbc79';ctx.beginPath();ctx.arc(x,y-personHeight*1.06,3,0,TAU);ctx.fill();}
+  ctx.translate(x,y-motion.bob);ctx.scale(motion.facing*motion.profile,1);
+  ctx.drawImage(atlas,cell.x,cell.y,cell.w,cell.h,-cell.ax*scale,-cell.ay*scale,cell.w*scale,cell.h*scale);ctx.restore();
+ }
+ const fade=ctx.createLinearGradient(0,height-25,0,height);fade.addColorStop(0,'rgba(8,14,21,0)');fade.addColorStop(1,'#080e15');ctx.fillStyle=fade;ctx.fillRect(0,height-25,width,25);
+ drawCollectiveRhythm();
+ drawNetworkSummary();
+ force=false;
+}
+function frame(stamp){requestAnimationFrame(frame);if(document.hidden){last=0;return;}if(!last)last=stamp;const elapsed=Math.min((stamp-last)/1000,.05);last=stamp;if(!paused){acc+=elapsed;let steps=0;while(acc>=STEP&&steps<6){model.step(K,STEP);paths.step(STEP);observation.sample();acc-=STEP;steps++;}if(steps)force=true;}if(model.t-lastReadout>.12||lastReadout<0)updateReadout();if(force)render();}
+configureControls();setPaused(paused);if(paused)announce('Motion is paused for your reduced-motion preference.');resize();updateReadout();requestAnimationFrame(frame);
+if(document.modelContext?.registerTool){const lifecycle=new AbortController();const tool={name:'configure_oscillator_coupling',title:'Set oscillator coupling',description:'Set the visible model control: bridge strength B in the four-group network or global coupling K in the original model. Return measured state. Internal group strength stays 2.4. Does not reset the population.',inputSchema:{type:'object',properties:{coupling:{type:'number',minimum:0,maximum:4}},required:['coupling'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},execute(input){if(!input||typeof input!=='object'||Object.keys(input).some(k=>k!=='coupling')||typeof input.coupling!=='number')throw new Error('Provide only a numeric coupling.');const result=setK(input.coupling);render();updateReadout();return result;}};try{Promise.resolve(document.modelContext.registerTool(tool,{signal:lifecycle.signal})).catch(()=>{});}catch{}window.addEventListener('pagehide',()=>lifecycle.abort(),{once:true});}
+})();
+</script></body></html>

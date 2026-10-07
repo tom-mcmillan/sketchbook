@@ -1,0 +1,11 @@
+{
+  "population": 256,
+  "seconds": 30,
+  "peopleMovedMoreThan4Percent": 256,
+  "peopleWithDirectionChanges": 235,
+  "pauseObservations": 380,
+  "seedReplay": "identical",
+  "reset": "identical",
+  "groundBounds": "passed",
+  "pathLayerFeedsIntoOscillators": false
+}
